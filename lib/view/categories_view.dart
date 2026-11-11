@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_easy_app/controler/categories_controler.dart';
+import 'package:shop_easy_app/view/categories_page_view.dart';
 
 class CategoriesView extends StatefulWidget {
   const CategoriesView({super.key});
@@ -38,16 +39,18 @@ class _CategoriesViewState extends State<CategoriesView> {
                          Padding(
                            padding: const EdgeInsets.all(8.0),
                            child: GestureDetector(
-                             onTap: (){},
+                             onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> CategoriesPageView(category: category)));
+                             },
                              child: Container(
-                               height: 75,
-                               width: 75,
-                               decoration: BoxDecoration(
-                                 color: category.bgColor,
-                                 borderRadius: BorderRadius.circular(10)
+                                 height: 75,
+                                 width: 75,
+                                 decoration: BoxDecoration(
+                                   color: category.bgColor,
+                                   borderRadius: BorderRadius.circular(10)
+                                 ),
+                                 child: Icon(category.icon,size: 37,),
                                ),
-                               child: Icon(category.icon,size: 37,),
-                             ),
                            ),
                          ),
                          Text(category.name,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)
